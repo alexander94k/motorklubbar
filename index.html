@@ -668,7 +668,7 @@ button { border: none; background: none; cursor: pointer; color: inherit; font-f
 }
 .standings-podium {
   display: grid;
-  grid-template-columns: 1fr 1.15fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin-bottom: 32px;
 }
@@ -1305,131 +1305,221 @@ button { border: none; background: none; cursor: pointer; color: inherit; font-f
 <section class="drivers-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Drivers</h2>
+      <h2 class="section-title">Förare</h2>
       <div class="section-actions">
-        <a href="#" class="view-all">View all</a>
-        <button class="carousel-btn"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg></button>
-        <button class="carousel-btn"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+        <a href="#" class="view-all">Visa alla</a>
+        <button class="carousel-btn" onclick="scrollDrivers(-1)"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg></button>
+        <button class="carousel-btn" onclick="scrollDrivers(1)"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
       </div>
     </div>
-    <div class="drivers-carousel">
-      <!-- Alpine Drivers -->
-      <a href="#" class="driver-card" style="--team-color: var(--alpine);">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--alpine), #004e70);"></div>
-        <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026alpinepiegas01right.webp" alt="Pierre Gasly">
-        <div class="driver-card-name">
-          <span class="driver-first">Pierre</span>
-          <span class="driver-last">Gasly</span>
-        </div>
-      </a>
-      <a href="#" class="driver-card" style="--team-color: var(--alpine);">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--alpine), #004e70);"></div>
-        <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026alpinefracol01right.webp" alt="Franco Colapinto">
-        <div class="driver-card-name">
-          <span class="driver-first">Franco</span>
-          <span class="driver-last">Colapinto</span>
-        </div>
-      </a>
-      <!-- Aston Martin Drivers -->
+    <div class="drivers-carousel" id="driversCarousel">
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--aston), #0f4331);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #ff8000, #ff800088);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026astonmartinferalo01right.webp" alt="Fernando Alonso">
+        <img class="driver-card-img" src="assets/driver-norris.webp" alt="Lando Norris">
         <div class="driver-card-name">
-          <span class="driver-first">Fernando</span>
-          <span class="driver-last">Alonso</span>
+          <span class="driver-first">Lando</span>
+          <span class="driver-last">Norris</span>
         </div>
       </a>
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--aston), #0f4331);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #3671c6, #3671c688);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026astonmartinlanstr01right.webp" alt="Lance Stroll">
+        <img class="driver-card-img" src="assets/driver-verstappen.webp" alt="Max Verstappen">
         <div class="driver-card-name">
-          <span class="driver-first">Lance</span>
-          <span class="driver-last">Stroll</span>
-        </div>
-      </a>
-      <!-- Audi -->
-      <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--audi), #751500);"></div>
-        <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026audinichul01right.webp" alt="Nico Hulkenberg">
-        <div class="driver-card-name">
-          <span class="driver-first">Nico</span>
-          <span class="driver-last">Hulkenberg</span>
+          <span class="driver-first">Max</span>
+          <span class="driver-last">Verstappen</span>
         </div>
       </a>
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--audi), #751500);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #ff8000, #ff800088);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026audigabbor01right.webp" alt="Gabriel Bortoleto">
+        <img class="driver-card-img" src="assets/driver-piastri.webp" alt="Oscar Piastri">
         <div class="driver-card-name">
-          <span class="driver-first">Gabriel</span>
-          <span class="driver-last">Bortoleto</span>
-        </div>
-      </a>
-      <!-- Cadillac -->
-      <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--cadillac), #58585b);"></div>
-        <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026cadillacserper01right.webp" alt="Sergio Perez">
-        <div class="driver-card-name">
-          <span class="driver-first">Sergio</span>
-          <span class="driver-last">Perez</span>
+          <span class="driver-first">Oscar</span>
+          <span class="driver-last">Piastri</span>
         </div>
       </a>
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--cadillac), #58585b);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #e8002d, #e8002d88);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026cadillacvalbot01right.webp" alt="Valtteri Bottas">
-        <div class="driver-card-name">
-          <span class="driver-first">Valtteri</span>
-          <span class="driver-last">Bottas</span>
-        </div>
-      </a>
-      <!-- Ferrari -->
-      <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--ferrari), #5c0012);"></div>
-        <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026ferrarichalec01right.webp" alt="Charles Leclerc">
+        <img class="driver-card-img" src="assets/driver-leclerc.webp" alt="Charles Leclerc">
         <div class="driver-card-name">
           <span class="driver-first">Charles</span>
           <span class="driver-last">Leclerc</span>
         </div>
       </a>
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--ferrari), #5c0012);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #e8002d, #e8002d88);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026ferrarilewham01right.webp" alt="Lewis Hamilton">
+        <img class="driver-card-img" src="assets/driver-hamilton.webp" alt="Lewis Hamilton">
         <div class="driver-card-name">
           <span class="driver-first">Lewis</span>
           <span class="driver-last">Hamilton</span>
         </div>
       </a>
-      <!-- More drivers continue in scroll -->
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--haas), #667175);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #27f4d2, #27f4d288);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026haasf1teamestoco01right.webp" alt="Esteban Ocon">
+        <img class="driver-card-img" src="assets/driver-russell.webp" alt="George Russell">
+        <div class="driver-card-name">
+          <span class="driver-first">George</span>
+          <span class="driver-last">Russell</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #27f4d2, #27f4d288);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-antonelli.webp" alt="Kimi Antonelli">
+        <div class="driver-card-name">
+          <span class="driver-first">Kimi</span>
+          <span class="driver-last">Antonelli</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #229971, #22997188);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-alonso.webp" alt="Fernando Alonso">
+        <div class="driver-card-name">
+          <span class="driver-first">Fernando</span>
+          <span class="driver-last">Alonso</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #229971, #22997188);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-stroll.webp" alt="Lance Stroll">
+        <div class="driver-card-name">
+          <span class="driver-first">Lance</span>
+          <span class="driver-last">Stroll</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #00a1e8, #00a1e888);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-gasly.webp" alt="Pierre Gasly">
+        <div class="driver-card-name">
+          <span class="driver-first">Pierre</span>
+          <span class="driver-last">Gasly</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #00a1e8, #00a1e888);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-colapinto.webp" alt="Franco Colapinto">
+        <div class="driver-card-name">
+          <span class="driver-first">Franco</span>
+          <span class="driver-last">Colapinto</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #6692ff, #6692ff88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-lawson.webp" alt="Liam Lawson">
+        <div class="driver-card-name">
+          <span class="driver-first">Liam</span>
+          <span class="driver-last">Lawson</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #6692ff, #6692ff88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-hadjar.webp" alt="Isack Hadjar">
+        <div class="driver-card-name">
+          <span class="driver-first">Isack</span>
+          <span class="driver-last">Hadjar</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #ff2d00, #ff2d0088);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-hulkenberg.webp" alt="Nico Hulkenberg">
+        <div class="driver-card-name">
+          <span class="driver-first">Nico</span>
+          <span class="driver-last">Hulkenberg</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #ff2d00, #ff2d0088);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-bortoleto.webp" alt="Gabriel Bortoleto">
+        <div class="driver-card-name">
+          <span class="driver-first">Gabriel</span>
+          <span class="driver-last">Bortoleto</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #b6babd, #b6babd88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-ocon.webp" alt="Esteban Ocon">
         <div class="driver-card-name">
           <span class="driver-first">Esteban</span>
           <span class="driver-last">Ocon</span>
         </div>
       </a>
       <a href="#" class="driver-card">
-        <div class="driver-card-bg" style="background: linear-gradient(180deg, var(--haas), #667175);"></div>
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #b6babd, #b6babd88);"></div>
         <div class="driver-card-pattern"></div>
-        <img class="driver-card-img" src="assets/2026haasf1teamolibea01right.webp" alt="Oliver Bearman">
+        <img class="driver-card-img" src="assets/driver-bearman.webp" alt="Oliver Bearman">
         <div class="driver-card-name">
           <span class="driver-first">Oliver</span>
           <span class="driver-last">Bearman</span>
         </div>
       </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #1868db, #1868db88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-albon.webp" alt="Alexander Albon">
+        <div class="driver-card-name">
+          <span class="driver-first">Alexander</span>
+          <span class="driver-last">Albon</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #1868db, #1868db88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-sainz.webp" alt="Carlos Sainz">
+        <div class="driver-card-name">
+          <span class="driver-first">Carlos</span>
+          <span class="driver-last">Sainz</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #aaaaad, #aaaaad88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-perez.webp" alt="Sergio Perez">
+        <div class="driver-card-name">
+          <span class="driver-first">Sergio</span>
+          <span class="driver-last">Perez</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #aaaaad, #aaaaad88);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-bottas.webp" alt="Valtteri Bottas">
+        <div class="driver-card-name">
+          <span class="driver-first">Valtteri</span>
+          <span class="driver-last">Bottas</span>
+        </div>
+      </a>
+      <a href="#" class="driver-card">
+        <div class="driver-card-bg" style="background: linear-gradient(180deg, #3671c6, #3671c688);"></div>
+        <div class="driver-card-pattern"></div>
+        <img class="driver-card-img" src="assets/driver-tsunoda.webp" alt="Yuki Tsunoda">
+        <div class="driver-card-name">
+          <span class="driver-first">Yuki</span>
+          <span class="driver-last">Tsunoda</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
+<script>
+function scrollDrivers(dir) {
+  const c = document.getElementById('driversCarousel');
+  c.scrollBy({ left: dir * 340, behavior: 'smooth' });
+}
+</script>
 
 <!-- ========== 2025 SEASON STANDINGS ========== -->
 <section class="standings-section">
@@ -1442,19 +1532,19 @@ button { border: none; background: none; cursor: pointer; color: inherit; font-f
 
     <!-- Podium Cards -->
     <div class="standings-podium">
-      <a href="#" class="podium-card podium-card-2">
-        <img class="podium-img" src="assets/2025redbullracingmaxver01right.webp" alt="Max Verstappen">
-        <div class="podium-pos">2<sup>ND</sup></div>
-        <div class="podium-name"><span class="first">Max</span> Verstappen</div>
-        <div class="podium-team">Red Bull Racing</div>
-        <div class="podium-points">421 <span class="podium-points-label">PTS</span></div>
-      </a>
       <a href="#" class="podium-card podium-card-1">
         <img class="podium-img" src="assets/2025mclarenlannor01right.webp" alt="Lando Norris">
         <div class="podium-pos">1<sup>ST</sup></div>
         <div class="podium-name"><span class="first">Lando</span> Norris</div>
         <div class="podium-team">McLaren</div>
         <div class="podium-points">423 <span class="podium-points-label">PTS</span></div>
+      </a>
+      <a href="#" class="podium-card podium-card-2">
+        <img class="podium-img" src="assets/2025redbullracingmaxver01right.webp" alt="Max Verstappen">
+        <div class="podium-pos">2<sup>ND</sup></div>
+        <div class="podium-name"><span class="first">Max</span> Verstappen</div>
+        <div class="podium-team">Red Bull Racing</div>
+        <div class="podium-points">421 <span class="podium-points-label">PTS</span></div>
       </a>
       <a href="#" class="podium-card podium-card-3">
         <img class="podium-img" src="assets/2025mclarenoscpia01right.webp" alt="Oscar Piastri">
@@ -1603,39 +1693,6 @@ button { border: none; background: none; cursor: pointer; color: inherit; font-f
     </div>
   </div>
 </section>
-
-<!-- ========== QUICK LINKS 2 ========== -->
-<section class="quick-links-2">
-  <div class="container">
-    <div class="quick-links-grid">
-      <a href="#" class="quick-link">
-        F1® UNLOCKED
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l6 5-6 5"/><line x1="3" y1="2" x2="7" y2="2"/></svg>
-      </a>
-      <a href="#" class="quick-link">
-        F1® STORE
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l6 5-6 5"/><line x1="3" y1="2" x2="7" y2="2"/></svg>
-      </a>
-      <a href="#" class="quick-link">
-        F1® TICKETS
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l6 5-6 5"/><line x1="3" y1="2" x2="7" y2="2"/></svg>
-      </a>
-      <a href="#" class="quick-link">
-        F1® FANTASY
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l6 5-6 5"/><line x1="3" y1="2" x2="7" y2="2"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SURVEY CTA ========== -->
-<div class="survey-cta">
-  <div class="survey-cta-inner">
-    <h2 class="survey-cta-title">Help shape the F1 website</h2>
-    <p class="survey-cta-text">Take a few minutes to tell us what you think.</p>
-    <a href="#" class="survey-cta-btn">Let's go</a>
-  </div>
-</div>
 
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
